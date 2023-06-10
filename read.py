@@ -1,4 +1,4 @@
-# STEP1 画像の文字を取得する
+# STEP2 画像の文字を取得する
 
 from PIL import Image
 import sys
@@ -24,15 +24,15 @@ print("Available languages: %s" % ", ".join(langs))
 lang = langs[0]
 print("Will use lang '%s'" % lang)
 
-img = "images/sample3.jpg"
+img = Image.open("images/sample.jpg")
 # 何も表示されていない時はtesseract_layoutの値を調整する
 # tesseract --help-extra を実行すると詳細を確認できる
-builder = pyocr.builders.TextBuilder(tesseract_layout=4)
-lang = 'jpn'
+builder = pyocr.builders.TextBuilder(tesseract_layout=8)
+lang = 'eng'
 
 txt = tool.image_to_string(
-    Image.open(img),
-    lang='jpn',
+    img,
+    lang=lang,
     builder=builder
 )
 
