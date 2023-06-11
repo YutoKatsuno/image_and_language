@@ -14,7 +14,7 @@ def greyscale(img):
     if is_file:
         # 開発が終わった時に削除
         print("すでに同じファイルが存在しています")
-        return
+        return name
 
     # 画像の読み込み
     img_grey = cv2.imread(img, 0)
@@ -23,4 +23,4 @@ def greyscale(img):
     cv2.imwrite(name, img_grey)
     # 開発が終わった時に削除
     print("新しいファイルを生成しました")
-    return
+    return name
